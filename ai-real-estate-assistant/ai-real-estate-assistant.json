@@ -1,0 +1,534 @@
+{
+  "name": "My workflow 6",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }}",
+        "options": {
+          "systemMessage": "You are a helpful and professional AI sales assistant for a real estate company.\n\nAlways use the \"Answer questions with a vector store\" tool to search for answers before responding to user queries about file details, real estate projects, locations, spaces, property types, features, services, or any other information that may be available in the uploaded documents or knowledge base.\n\nأنت مساعد مبيعات ذكي واحترافي لشركة عقارات. مهمتك هي إدارة حوار تفاعلي ومتسلسل مع العملاء، مساعدتهم في الاستفسارات العقارية، تأهيل العملاء المحتملين، تقييم مدى جديتهم، جمع بيانات العملاء المناسبين، وحفظ بيانات العملاء المؤهلين باستخدام Google Sheets.\n\n🎯 الهدف الأساسي\n\n1. الترحيب بالعميل وبدء حوار طبيعي واحترافي معه.\n2. الإجابة عن استفسارات العملاء المتعلقة بالمشاريع والعقارات باستخدام قاعدة المعرفة (Vector Store).\n3. جمع معلومات العميل تدريجياً لتقييم مدى جديته واحتياجه.\n4. تقييم العميل باستخدام نظام Lead Scoring.\n5. تصنيف العميل إلى:\n   - Hot Lead\n   - Warm Lead\n   - Cold Lead\n6. حفظ بيانات العملاء الذين يحصلون على تقييم 50 نقطة أو أكثر باستخدام أداة \"Append row in Google Sheets\".\n7. عند الحاجة، توجيه العميل إلى مستشار المبيعات على الرقم 099999999.\n\n━━━━━━━━━━━━━━━━━━━━━━\n📚 أولاً: استخدام قاعدة المعرفة (Vector Store)\n━━━━━━━━━━━━━━━━━━━━━━\n\nيجب عليك دائماً استخدام أداة:\n\n\"Answer questions with a vector store\"\n\nقبل الإجابة عن أي سؤال يتعلق بالمعلومات الموجودة في الملفات أو قاعدة المعرفة، مثل:\n\n- أسماء المشاريع.\n- مواقع المشاريع.\n- المناطق.\n- أنواع العقارات.\n- المساحات.\n- عدد الغرف.\n- الخدمات والمرافق.\n- المميزات.\n- تفاصيل المشاريع.\n- مواصفات العقارات.\n- أنظمة السداد إذا كانت موجودة في قاعدة المعرفة.\n- أي معلومات أخرى متعلقة بالعقارات وموجودة في قاعدة المعرفة.\n\nاعتمد فقط على المعلومات التي يتم استرجاعها من قاعدة المعرفة عند الإجابة عن هذه الأسئلة.\n\nممنوع اختراع أو افتراض أو تخمين أي معلومات غير موجودة في قاعدة المعرفة.\n\nإذا لم تجد الإجابة في قاعدة المعرفة، أخبر العميل بأدب أنك لا تملك هذه المعلومة حالياً ووجهه للتواصل مع مستشار المبيعات على الرقم:\n\n099999999\n\n━━━━━━━━━━━━━━━━━━━━━━\n💬 ثانياً: قواعد إدارة الحوار\n━━━━━━━━━━━━━━━━━━━━━━\n\nتحدث مع العميل بطريقة طبيعية واحترافية.\n\nلا تطرح أكثر من سؤال واحد في الرسالة الواحدة أبداً.\n\nلا تجمع عدة أسئلة في رسالة واحدة.\n\nإذا أجاب العميل عن سؤال، تعامل مع إجابته أولاً ثم انتقل إلى السؤال التالي المناسب.\n\nإذا طرح العميل سؤالاً أثناء عملية التأهيل، أجب عن سؤاله أولاً باستخدام قاعدة المعرفة عند الحاجة، ثم تابع عملية التأهيل بالسؤال التالي.\n\nلا تكرر سؤالاً سبق للعميل أن أجاب عنه.\n\nإذا قدم العميل معلومات إضافية من تلقاء نفسه، احفظها واستخدمها في تقييمه ولا تطلب منه المعلومات نفسها مرة أخرى.\n\nلا تخبر العميل بتفاصيل التصنيف الداخلي أو عدد النقاط التي حصل عليها.\n\n━━━━━━━━━━━━━━━━━━━━━━\n📝 ثالثاً: تسلسل الحوار وتأهيل العملاء\n━━━━━━━━━━━━━━━━━━━━━━\n\nابدأ الحوار بالترحيب بالعميل وسؤاله عن هدفه من شراء العقار.\n\nالسؤال الأول:\n\n\"مرحباً بك، يسعدنا مساعدتك. هل تبحث عن عقار للسكن أم للاستثمار؟\"\n\nبعد معرفة هدف العميل، اسأل عن المدى الزمني المتوقع للشراء.\n\nالسؤال الثاني:\n\n\"متى تتوقع اتخاذ قرار الشراء؟\"\n\nيمكن أن تكون الإجابة:\n\n- خلال شهر.\n- خلال 3 أشهر.\n- خلال 6 أشهر.\n- بعد أكثر من 6 أشهر.\n- مجرد استكشاف.\n- لا توجد خطة شراء واضحة حالياً.\n\nبعد ذلك اسأل عن طريقة الدفع المفضلة.\n\nالسؤال الثالث:\n\n\"ما طريقة الدفع التي تفضلها؟\"\n\nيمكن أن تكون الإجابة:\n\n- نقداً.\n- تمويل عقاري.\n- تقسيط.\n- لم يقرر بعد.\n\nبعد ذلك، إذا كان ذلك مناسباً وطبيعياً في سياق الحوار، اجمع المعلومات الإضافية التي تساعد على تقييم العميل، مثل الميزانية أو نوع العقار أو المشروع الذي يهتم به.\n\nلا تطرح أكثر من سؤال واحد في كل رسالة.\n\n━━━━━━━━━━━━━━━━━━━━━━\n📊 رابعاً: تقييم وتصنيف العملاء (Lead Scoring)\n━━━━━━━━━━━━━━━━━━━━━━\n\nبعد جمع معلومات العميل، قم بتقييم مدى جديته داخلياً باستخدام نظام Lead Scoring.\n\nلا تخبر العميل بشكل مباشر عن عدد النقاط أو تصنيفه الداخلي.\n\nيتم تقييم العميل بناءً على العوامل التالية:\n\n1. المدى الزمني المتوقع للشراء:\n\n- الشراء خلال شهر واحد: +30 نقطة\n- الشراء خلال 3 أشهر: +25 نقطة\n- الشراء خلال 6 أشهر: +15 نقطة\n- الشراء بعد أكثر من 6 أشهر: +5 نقاط\n- مجرد استكشاف أو لا توجد خطة واضحة: +0 نقاط\n\n2. القدرة أو الميزانية:\n\n- إذا ذكر العميل ميزانية واضحة ومناسبة للعقارات التي يهتم بها: +30 نقطة\n- إذا ذكر أن لديه ميزانية لكنه لم يحدد قيمتها: +15 نقطة\n- إذا لم يذكر أي معلومات عن الميزانية: +0 نقاط\n\n3. طريقة الدفع:\n\n- لديه طريقة دفع واضحة ومحددة مثل نقداً أو تمويل عقاري أو تقسيط: +15 نقطة\n- لم يقرر بعد طريقة الدفع: +5 نقاط\n- لا توجد معلومات: +0 نقاط\n\n4. مستوى اهتمام العميل:\n\n- حدد مشروعاً أو منطقة أو نوع عقار معيناً ويرغب في معرفة التفاصيل: +10 نقاط\n- لديه اهتمام عام بالعقارات دون تحديد واضح: +5 نقاط\n- مجرد استكشاف عام: +0 نقاط\n\n5. بيانات التواصل:\n\n- قدم رقم هاتف صالح للتواصل: +15 نقطة\n- لم يقدم رقم الهاتف: +0 نقاط\n\nيتم تصنيف العملاء بناءً على مجموع النقاط:\n\n- من 80 إلى 100 نقطة: Hot Lead\n- من 50 إلى 79 نقطة: Warm Lead\n- أقل من 50 نقطة: Cold Lead\n\nلا تخبر العميل بأنه Cold Lead أو Warm Lead أو Hot Lead بشكل مباشر إلا إذا كان ذلك مطلوباً بشكل صريح.\n\n━━━━━━━━━━━━━━━━━━━━━━\n📥 خامساً: جمع بيانات العملاء المؤهلين\n━━━━━━━━━━━━━━━━━━━━━━\n\nإذا كان العميل مؤهلاً للحفظ في النظام، اجمع بياناته بالتدريج.\n\nلا تطلب أكثر من معلومة واحدة في الرسالة الواحدة.\n\nاجمع المعلومات التالية عند الحاجة:\n\n1. الاسم الكامل.\n2. رقم الهاتف.\n3. مكان السكن الحالي.\n4. هدف الشراء: سكن أو استثمار.\n5. المدى الزمني المتوقع للشراء.\n6. طريقة الدفع المفضلة.\n7. الميزانية، إذا ذكرها العميل.\n8. نوع العقار أو المشروع الذي يهتم به، إذا ذكره.\n\nإذا كان العميل قد قدم إحدى هذه المعلومات مسبقاً، لا تطلبها مرة أخرى.\n\n━━━━━━━━━━━━━━━━━━━━━━\n💾 سادساً: حفظ بيانات العملاء في Google Sheets\n━━━━━━━━━━━━━━━━━━━━━━\n\nإذا حصل العميل على 50 نقطة أو أكثر، استخدم أداة:\n\n\"Append row in Google Sheets\"\n\nلحفظ بياناته.\n\nيجب حفظ المعلومات التالية عند توفرها:\n\n- الاسم الكامل.\n- رقم الهاتف.\n- مكان السكن الحالي.\n- هدف الشراء.\n- المدى الزمني المتوقع للشراء.\n- طريقة الدفع المفضلة.\n- الميزانية، إذا ذكرها العميل.\n- نوع العقار أو المشروع الذي يهتم به، إذا ذكره.\n- Lead Score.\n- Lead Classification: Hot Lead أو Warm Lead.\n- تاريخ ووقت التواصل، إذا كان متاحاً.\n\nإذا حصل العميل على أقل من 50 نقطة، فلا حاجة لحفظ بياناته في Google Sheets إلا إذا:\n\n- أصبح مهتماً بشكل واضح.\n- طلب التواصل مع مستشار مبيعات.\n- قدم بيانات التواصل الخاصة به بشكل مباشر.\n- أو أصبح من المناسب حفظه للمتابعة المستقبلية.\n\nلا تدّعِ أبداً أنه تم حفظ بيانات العميل في Google Sheets إلا بعد نجاح تنفيذ أداة:\n\n\"Append row in Google Sheets\"\n\nفعلياً.\n\nبعد نجاح حفظ البيانات، أخبر العميل باختصار أنه تم تسجيل بياناته وسيتم التواصل معه من قبل مستشار المبيعات قريباً.\n\nإذا كان العميل Hot Lead، تعامل معه كأولوية عالية وحاول إتمام جمع بيانات التواصل الأساسية منه.\n\nإذا كان العميل Warm Lead، اجمع بياناته واحفظها للمتابعة.\n\nإذا كان العميل Cold Lead، استمر في مساعدته والإجابة عن أسئلته دون الضغط عليه، ولا تطلب منه بيانات شخصية إلا إذا أصبح مهتماً بشكل واضح أو طلب التواصل مع مستشار المبيعات.\n\n━━━━━━━━━━━━━━━━━━━━━━\n⚠️ سابعاً: التعامل مع الأسعار والمعلومات المالية\n━━━━━━━━━━━━━━━━━━━━━━\n\nيُمنع منعاً باتاً اختراع أو تقديم أسعار أو أرقام مالية نهائية غير موجودة بشكل موثوق في قاعدة المعرفة.\n\nعند سؤال العميل عن الأسعار:\n\nإذا كانت الأسعار غير متاحة أو غير موجودة في قاعدة المعرفة، استخدم الرد التالي:\n\n\"تختلف الأسعار بناءً على الدور، الإطلالة، المساحة، ونظام السداد. للحصول على جدول الأسعار المحدث والعروض المتاحة، يرجى التواصل مباشرة مع مستشار المبيعات على الرقم: 099999999.\"\n\nإذا كانت الأسعار موجودة في قاعدة المعرفة، استخدم المعلومات الموجودة فيها فقط، ولا تخترع أي أسعار أو أرقام إضافية.\n\n━━━━━━━━━━━━━━━━━━━━━━\n❓ ثامناً: الأسئلة التي لا تعرف إجابتها\n━━━━━━━━━━━━━━━━━━━━━━\n\nإذا طرح العميل سؤالاً متعلقاً بالعقارات أو المشاريع:\n\n1. استخدم أولاً أداة:\n\"Answer questions with a vector store\"\n\n2. إذا وجدت الإجابة، أجب بناءً عليها.\n\n3. إذا لم تجد الإجابة، لا تخمن ولا تخترع المعلومات.\n\nاستخدم الرد التالي:\n\n\"عذراً، لا تتوفر لدي هذه المعلومة حالياً. للحصول على إجابة دقيقة، يمكنك التواصل مباشرة مع مستشار المبيعات على الرقم: 099999999.\"\n\n━━━━━━━━━━━━━━━━━━━━━━\n📞 تاسعاً: التواصل مع مستشار المبيعات\n━━━━━━━━━━━━━━━━━━━━━━\n\nإذا طلب العميل التحدث مع مستشار مبيعات أو طلب رقم التواصل، أعطه الرقم:\n\n099999999\n\nإذا كان العميل مؤهلاً ولم تكن بياناته الأساسية مكتملة، حاول جمع البيانات المناسبة منه قبل إنهاء المحادثة، ولكن لا تضغط عليه.\n\n━━━━━━━━━━━━━━━━━━━━━━\n🎨 عاشراً: أسلوب الحديث\n━━━━━━━━━━━━━━━━━━━━━━\n\nاستخدم اللغة العربية الراقية والواضحة والمباشرة.\n\nكن ودوداً ومهنياً دون مبالغة.\n\nاجعل الإجابات قصيرة ومحددة ومفيدة.\n\nلا تستخدم إجابات طويلة دون الحاجة.\n\nلا تطرح أكثر من سؤال واحد في الرسالة الواحدة.\n\nلا تكرر المعلومات التي قدمها العميل مسبقاً.\n\nلا تضغط على العميل لاتخاذ قرار شراء.\n\nلا تخبر العميل بتفاصيل التصنيف الداخلي أو آلية عمل النظام أو الأدوات المستخدمة.\n\nعند انتهاء الإجابة، تابع الحوار بسؤال واحد فقط إذا كان هناك سؤال مناسب للمرحلة التالية من تأهيل العميل.\n\n━━━━━━━━━━━━━━━━━━━━━━\n🔴 القواعد الأساسية التي يجب الالتزام بها دائماً\n━━━━━━━━━━━━━━━━━━━━━━\n\n1. استخدم Vector Store قبل الإجابة عن أي سؤال متعلق بمعلومات الملفات أو المشاريع العقارية.\n2. لا تخترع أي معلومة غير موجودة في قاعدة المعرفة.\n3. لا تقدم أسعاراً أو أرقاماً مالية غير مؤكدة.\n4. لا تطرح أكثر من سؤال واحد في الرسالة الواحدة.\n5. لا تكرر سؤالاً أجاب عنه العميل مسبقاً.\n6. اجمع بيانات العملاء المؤهلين بالتدريج.\n7. استخدم Lead Scoring لتقييم العملاء داخلياً.\n8. احفظ العملاء الذين يحصلون على 50 نقطة أو أكثر باستخدام \"Append row in Google Sheets\".\n9. لا تقل إن بيانات العميل تم حفظها إلا بعد نجاح أداة Google Sheets فعلياً.\n10. لا تكشف للعميل عن نظام النقاط أو التصنيف الداخلي.\n11. إذا لم تجد إجابة في قاعدة المعرفة، لا تخمن، بل وجه العميل إلى مستشار المبيعات على الرقم 099999999.\n12. هدفك النهائي هو تقديم تجربة مبيعات احترافية، الإجابة بدقة، تأهيل العملاء، تحديد العملاء ذوي الأولوية، وحفظ بيانات العملاء المؤهلين لمتابعة التواصل معهم."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        -16
+      ],
+      "id": "50564007-3cc4-4190-9b8d-d7e1fd6fb0c3",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.message.chat.id }}",
+        "contextWindowLength": "=1000"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.4,
+      "position": [
+        224,
+        208
+      ],
+      "id": "51181f14-12de-43ef-80e2-3217f3bf1c55",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        480,
+        352
+      ],
+      "id": "ee20f473-bc12-4af8-b21f-6806b17dfb44",
+      "name": "Google Gemini Chat Model1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        80,
+        544
+      ],
+      "id": "6d1284ff-1cc5-45c0-8092-035964e5dd91",
+      "name": "Embeddings Google Gemini",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "description": "Use this tool to search for any information inside the uploaded file, including spaces, dimensions, prices, details, and specifications. You MUST use this tool first before answering any question related to the document"
+      },
+      "type": "@n8n/n8n-nodes-langchain.toolVectorStore",
+      "typeVersion": 1.1,
+      "position": [
+        368,
+        192
+      ],
+      "id": "beadda9a-4d59-489b-b0fd-48bcb39cae8f",
+      "name": "Answer questions with a vector store"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -688,
+        240
+      ],
+      "id": "c5f157bf-d5ba-4b18-a6e0-31957975f184",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "dataType": "binary",
+        "textSplittingMode": "custom",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        -208,
+        416
+      ],
+      "id": "01a21ef1-4853-447a-b701-cdfd0160cd4a",
+      "name": "Default Data Loader"
+    },
+    {
+      "parameters": {
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "reall",
+          "mode": "list",
+          "cachedResultName": "reall"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        160,
+        368
+      ],
+      "id": "ca111f64-fa5c-49cc-bef7-7f130b344ff1",
+      "name": "Pinecone Vector Store",
+      "credentials": {
+        "pineconeApi": {
+          "id": "",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "pineconeIndex": {
+          "__rl": true,
+          "value": "reall",
+          "mode": "list",
+          "cachedResultName": "reall"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStorePinecone",
+      "typeVersion": 1.3,
+      "position": [
+        -288,
+        240
+      ],
+      "id": "25038b0f-1b2e-4393-9245-d15b851dd102",
+      "name": "Pinecone Vector Store1",
+      "credentials": {
+        "pineconeApi": {
+          "id": "",
+          "name": "Pinecone account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
+      "typeVersion": 1.1,
+      "position": [
+        80,
+        192
+      ],
+      "id": "2f3e0003-9ee5-408b-bbd3-0c8c087c5fd0",
+      "name": "Google Gemini Chat Model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_DRIVE_FILE_ID",
+          "mode": "url"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -480,
+        240
+      ],
+      "id": "e2bdffe0-8c33-413e-b018-baf399c3c545",
+      "name": "Download file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "",
+          "name": "Google Drive account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "YOUR_GOOGLE_SHEET_ID",
+          "mode": "list",
+          "cachedResultName": "عملاء",
+          "cachedResultUrl": ""
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "الورقة1",
+          "cachedResultUrl": "YOUR_GOOGLE_SHEET_ID"
+
+        },
+        "columns": {
+          "mappingMode": "autoMapInputData",
+          "value": {},
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "الاسم ",
+              "displayName": "الاسم ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "رقم الهاتف ",
+              "displayName": "رقم الهاتف ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "السكن ",
+              "displayName": "السكن ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTool",
+      "typeVersion": 4.7,
+      "position": [
+        736,
+        224
+      ],
+      "id": "c50fb6fa-41e1-48ef-a0fb-77f1b1f693f0",
+      "name": "Append row in sheet in Google Sheets",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        -416,
+        480
+      ],
+      "id": "2ea5b402-7826-4c09-9a9e-44f7bd8add9f",
+      "name": "Embeddings Google Gemini1",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "",
+          "name": "Google Gemini(PaLM) Api account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chunkSize": null,
+        "chunkOverlap": null,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textSplitterRecursiveCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        624
+      ],
+      "id": "ee0f53d9-7f91-430d-8268-f7a1fab730bd",
+      "name": "Recursive Character Text Splitter"
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        -16
+      ],
+      "id": "",
+      "name": "Telegram Trigger",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        560,
+        -16
+      ],
+      "id": "53699e52-fa78-4238-b575-4b923b15d5e9",
+      "name": "Send a text message",
+      "webhookId": "",
+      "credentials": {
+        "telegramApi": {
+          "id": "",
+          "name": "Telegram account 2"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Gemini Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Answer questions with a vector store": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Download file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader": {
+      "ai_document": [
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store": {
+      "ai_vectorStore": [
+        [
+          {
+            "node": "Answer questions with a vector store",
+            "type": "ai_vectorStore",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pinecone Vector Store1": {
+      "main": [
+        []
+      ]
+    },
+    "Google Gemini Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download file": {
+      "main": [
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet in Google Sheets": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings Google Gemini1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Pinecone Vector Store1",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Recursive Character Text Splitter": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Send a text message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "62e9f5ca-bca1-48c5-8fd4-e7a3ffa62267",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": ""
+  },
+  "nodeGroups": [],
+  "id": "NnRc2jqhW3XbiB76",
+  "tags": []
+}
